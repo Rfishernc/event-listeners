@@ -30,11 +30,11 @@ function printToDom(string, div) {
 
 function toDoCardMaker(doIt, takeNotes) {
     let toDoString = 
-    `<div class="card" style="width: 18rem;">
+    `<div class="card w-25 m-2">
         <div class="card-body">
             <h5 class="card-title">${doIt}</h5>
             <p class="card-text">${takeNotes}</p>
-            <a href="#" class="btn btn-primary deleteButt">Delete</a>
+            <a href="#" class="btn btn-danger deleteButt">Delete</a>
         </div>
     </div>`;
     printToDom(toDoString, 'toDoCards')
