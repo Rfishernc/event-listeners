@@ -2,8 +2,20 @@ const toDoInputElem = document.getElementById('toDoInput');
 const notesInputElem = document.getElementById('notesInput');
 const submitButtElem = document.getElementById('submitButt');
 
+function activateDeletes() {
+    const deleteButt = document.getElementsByClassName('deleteButt');
+    for(let i = 0; i < deleteButt.length; i++) {
+        const elem = deleteButt[i];
+        elem.addEventListener('click', function(e) {
+            const clicked = e.target;
+            clicked.parentNode.parentNode.remove();
+        })
+    }
+}
+
 let toDo = ''
 let notes = '';
+
 
 submitButtElem.addEventListener('click', function(e) {
     e.preventDefault();
@@ -22,8 +34,9 @@ function toDoCardMaker(doIt, takeNotes) {
         <div class="card-body">
             <h5 class="card-title">${doIt}</h5>
             <p class="card-text">${takeNotes}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary deleteButt">Delete</a>
         </div>
     </div>`;
     printToDom(toDoString, 'toDoCards')
+    activateDeletes();
 }
